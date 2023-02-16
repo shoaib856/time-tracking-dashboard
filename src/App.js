@@ -33,8 +33,10 @@ function App() {
             <div className="image">
               <img alt="..." src={avatar} />
             </div>
-            <p>Report for</p>
-            <h2 className="name">Jeremy Robson</h2>
+            <div className="name">
+              <p>Report for</p>
+              <h2>Jeremy Robson</h2>
+            </div>
           </div>
           <div className="time-tracking-type">
             <input
@@ -68,12 +70,14 @@ function App() {
                   {card.title}
                   <img src={ellipsis} alt="..." />
                 </p>
+                <div className="hours-number">
                 <h1 className="current-hours">
                   {card.timeframes[timingType].current}hrs
                 </h1>
                 <p className="prev-hours">
                   Last Week - {card.timeframes[timingType].previous}hrs
                 </p>
+                </div>
               </div>
             </div>
           );
