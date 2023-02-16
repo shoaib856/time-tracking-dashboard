@@ -1,0 +1,104 @@
+@use './sass/variables/_colors' as *
+@use './sass/layout/_gloabal-rules'
+
+$radius: 12px
+$colors: (0, $Light-red-work), (1, $Soft-blue-play), (2, $Light-red-study), (3, $Lime-green-exercise), (4, $Violet-social), (5,$Soft-orange-self-care)
+.time-tracking-dashboard
+    width: 100vw
+    height: 100vh
+    background-color: $Very-dark-blue
+    display: flex
+    align-items: center
+    justify-content: center
+    .container
+        width: 1010px
+        display: grid
+        grid-template-columns: repeat(4, 232px)
+        grid-template-rows: repeat(2, 221px)
+        gap: 27px
+
+        .main
+            border-radius: $radius
+            background-color: $Dark-blue
+            .user-info
+                height: 321px
+                padding: 30px 31px
+                background-color: $Blue
+                border-radius: $radius
+                p
+                    font-size: .85rem
+                    margin: 0px -1px 4px
+                    color: $Pale-Blue
+                .name
+                    font-size: 36px
+                    font-weight: 100
+                    color: $white
+                img
+                    display: block
+                    border: 3px solid $Pale-Blue
+                    border-radius: 50%
+                    width: 77px
+                    margin-bottom: 35px
+                    margin-left: -4px
+            .time-tracking-type
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                height: calc( 100% - 321px )
+                padding: 23px 31px
+                gap: 19px
+                .btn
+                    background-color: transparent
+                    color: $Desaturated-blue
+                    text-transform: capitalize
+                    border: none
+                    outline: none
+                    cursor: pointer
+                    font-size: 16px
+                    &:hover,&.active
+                        color: $white
+
+            &.span-2
+                grid-row: span 2
+
+        .card
+            border-radius: $radius + 3px
+            @each $i,$color in $colors
+                &.card-#{$i}
+                    background-color: $color
+                    .logo
+                        height: 40px
+                        text-align: end
+                        overflow: hidden
+                        border-radius: $radius $radius 0 0
+                        img
+                            margin-top: -10px
+                            margin-right: 12px
+                            transform: scale(.9)
+            .content
+                background-color: $Dark-blue
+                cursor: pointer
+                border-radius: $radius
+                height: calc( 100% - 40px )
+                padding: 27px 25px 27px 28px
+                color: #fff
+                &:hover
+                    background-color: $Desaturated-blue
+
+                .title
+                    font-size: 1.08rem
+                    margin-bottom: 22px
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    img
+                        cursor: pointer
+                        &:hover
+                            filter: invert(100%) sepia(0%) saturate(7492%) hue-rotate(180deg) brightness(100%) contrast(100%)
+                .current-hours
+                    font-size: 3.2rem
+                    font-weight: 100
+                    margin-bottom: 5px
+                .prev-hours
+                    font-size: .85rem
+                    color: $Pale-Blue
